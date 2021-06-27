@@ -2,8 +2,8 @@
   <div id="navigator">
     <button id="reset" v-on:click="restart">{{ reset }}</button>
     <span id="message" :style="{color: messageColor}">{{ message }}</span>
-    <button id="easy">easy</button>
-    <button id="hard" class="selected">hard</button>
+    <button id="easy" v-on:click="changeToEasy()">easy</button>
+    <button id="hard" class="selected" v-on:click="changeToHard()">hard</button>
   </div>
 </template>
 
@@ -28,6 +28,16 @@ export default {
     return {}
   },
   methods: {
+    changeToEasy() {
+      document.querySelector('#easy').classList.add('selected')
+      document.querySelector('#hard').classList.remove('selected')
+      this.$emit('changeToEasy', 'easy')
+    },
+    changeToHard() {
+      document.querySelector('#easy').classList.remove('selected')
+      document.querySelector('#hard').classList.add('selected')
+      this.$emit('changeToHard', 'hard')
+    },
     restart() {
       this.$emit('restart')
     }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
-    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart"></Navigator>
+    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart" v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
     <div id="container">
       <Game v-on:start="start" v-on:win="win" v-on:miss="miss" ref="game"></Game>
     </div>
@@ -27,7 +27,7 @@ export default {
       hBackgroundColor: null,
       nMessage: '',
       nReset: 'New colors',
-      nMessageColor: '#fff'
+      nMessageColor: '#fff',
     }
   },
   methods: {
@@ -49,6 +49,12 @@ export default {
     },
     restart() {
       this.$refs.game.start()
+    },
+    changeToEasy() {
+      this.$refs.game.changeToEasy()
+    },
+    changeToHard() {
+      this.$refs.game.changeToHard()
     }
   }
 }

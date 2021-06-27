@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="square" :style="{backgroundColor: currentColor ? currentColor : color}" v-on:click="clickSquare">
+    <div class="square" :style="{backgroundColor: currentColor ? currentColor : color, display: display}"
+         v-on:click="clickSquare">
     </div>
   </div>
 </template>
@@ -16,6 +17,9 @@ export default {
       type: String
     },
     currentColor: {
+      type: String
+    },
+    display: {
       type: String
     }
   },

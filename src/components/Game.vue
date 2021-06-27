@@ -1,12 +1,13 @@
 <template>
   <section>
     <Square
-        v-for="(c,i) in colors" :key="i"
-        :color="c"
+        v-for="(s,i) in squares" :key="i"
+        :color="s.color"
         :pickedColor="pickedColor"
         :currentColor="winColor"
         v-on:win="win"
         v-on:miss="miss"
+        :display="s.display"
     >
     </Square>
   </section>
@@ -24,8 +25,9 @@ export default {
   data() {
     return {
       colorCount: 0,
-      isHard: false,
+      isHard: true,
       colors: [],
+      squares: [],
       pickedColor: null,
       winColor: null
     }
@@ -53,12 +55,19 @@ export default {
     randomInt() {
       return Math.floor(Math.random() * 256);
     },
-    start() {
-      this.colorCount = 6
-      this.isHard = true
+    start(colorCount = 6, isHard = true) {
+      this.colorCount = colorCount
+      this.isHard = isHard
       this.winColor = null
       this.colors = []
+      this.squares = []
       this.colors = this.createNewColors(this.colorCount);
+      this.colors.forEach(c => {
+        this.squares.push({
+          color: c,
+          display: 'block'
+        })
+      })
       this.pickedColor = this.colors[this.PickColor()];
       this.$emit('start', {
         hPickedColor: this.pickedColor,
@@ -74,6 +83,16 @@ export default {
     miss(payload) {
       this.$emit('miss', payload)
     },
+    changeToEasy() {
+      if (this.isHard) {
+        this.start(3, false);
+      }
+    },
+    changeToHard() {
+      if (!this.isHard) {
+        this.start(6, true);
+      }
+    }
   },
   created() {
     this.start()
