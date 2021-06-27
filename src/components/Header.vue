@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="header">
     <h1>The Great <br>
-      <span id="colorDisplay">RGB</span>
+      <span id="colorDisplay">{{ color }}</span>
       <br>
       Guessing Game</h1>
   </div>
@@ -11,7 +11,7 @@
 
 export default {
   name: 'src-components-header',
-  props: [],
+  props: ["color"],
   mounted() {
 
   },

@@ -55,6 +55,7 @@ export default {
     restart() {
       this.colors = this.createNewColors(this.colorCount);
       this.pickedColor = this.colors[this.PickColor()];
+      this.$emit('colorChange', this.pickedColor)
       /*this.colorDisplay.textContent = this.pickedColor;
       this.textContent = "Pick New Colors!";
       this.header.style.backgroundColor = "steelblue";

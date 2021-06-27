@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Header :color="color"></Header>
     <Navigator></Navigator>
     <div id="container">
-      <Squares></Squares>
+      <Squares v-on:colorChange="onColorChange"></Squares>
     </div>
   </div>
 </template>
@@ -20,6 +20,16 @@ export default {
     Header,
     Navigator,
     Squares
+  },
+  data() {
+    return {
+      color: ''
+    }
+  },
+  methods: {
+    onColorChange(v) {
+      this.color = v
+    }
   }
 }
 </script>
