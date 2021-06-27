@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
-    <Navigator :message="nMessage" :reset="nReset"></Navigator>
+    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset"></Navigator>
     <div id="container">
-      <Game v-on:restart="restart"></Game>
+      <Game v-on:restart="restart" v-on:changeNMessage="changeNMessage"></Game>
     </div>
   </div>
 </template>
@@ -26,7 +26,8 @@ export default {
       hPickedColor: '',
       hBackgroundColor: '',
       nMessage: '',
-      nReset: 'New colors'
+      nReset: 'New colors',
+      nMessageColor: '#fff'
     }
   },
   methods: {
@@ -35,6 +36,16 @@ export default {
       this.hBackgroundColor = payload.hBackgroundColor
       this.nMessage = payload.nMessage
     },
+    win(payload) {
+      this.nMessage = payload.nMessage
+      this.nReset = payload.nReset
+      this.hBackgroundColor = payload.pickedColor
+    },
+    changeNMessage(v) {
+      console.log("App => changeNMessage: " + v)
+      this.nMessage = v
+      this.nMessageColor = '#000'
+    }
   }
 }
 </script>

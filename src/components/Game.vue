@@ -1,6 +1,13 @@
 <template>
   <section>
-    <Square v-for="(c,i) in colors" :key="i" :color="c"></Square>
+    <Square
+        v-for="(c,i) in colors" :key="i"
+        :color="c"
+        :pickedColor="pickedColor"
+        v-on:win="win"
+        :winColor="winColor"
+    >
+    </Square>
   </section>
 </template>
 
@@ -19,6 +26,7 @@ export default {
       isHard: false,
       colors: [],
       pickedColor: null,
+      winColor: null
     }
   },
   methods: {
@@ -54,6 +62,11 @@ export default {
         nReset: "New Colors!"
       })
     },
+    win(payload) {
+      console.log('WIN' + this.pickedColor)
+      this.$emit('win', payload)
+      this.winColor = this.pickedColor
+    }
   },
   created() {
     this.colorCount = 6

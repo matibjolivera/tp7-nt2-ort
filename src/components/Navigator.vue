@@ -1,8 +1,7 @@
 <template lang="html">
   <div id="navigator">
     <button id="reset">{{ reset }}</button>
-    <span id="message">{{ message }}</span>
-
+    <span id="message" :style="{color: messageColor}">{{ message }}</span>
     <button id="easy">easy</button>
     <button id="hard" class="selected">hard</button>
   </div>
@@ -18,6 +17,9 @@ export default {
     },
     reset: {
       type: String
+    },
+    messageColor: {
+      type: String,
     }
   },
   mounted() {
