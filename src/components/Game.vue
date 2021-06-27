@@ -75,30 +75,6 @@ export default {
     this.colorCount = 6
     this.isHard = true
     this.colors = []
-    /*    this.squares = document.querySelectorAll(".square")
-        this.colorDisplay = document.getElementById("colorDisplay")
-        this.messageDisplay = document.getElementById("message")
-        this.h1 = document.querySelector("h1")
-        this.restartButton = document.querySelector("#reset")
-        this.header = document.querySelector("#header")
-        this.easyButton = document.querySelector("#easy")
-        this.hardButton = document.querySelector("#hard")
-        for (let i = 0; i < this.quantitySquares; i++) {
-        this.squares[i].style.backgroundColor = this.colors[i];
-        this.squares[i].addEventListener("click", function () {
-          let clickedColor = this.style.backgroundColor;
-          if (clickedColor === this.pickedColor) {
-            this.messageDisplay.textContent = "You Picked Right!";
-            this.setAllColorsTo(this.pickedColor);
-            this.restartButton.textContent = "Play Again!";
-            this.header.style.backgroundColor = this.pickedColor;
-          } else {
-            this.style.backgroundColor = "#232323";
-            this.messageDisplay.textContent = "Try Again!";
-            this.messageDisplay.style.color = "#000000";
-          }
-        })
-      }*/
     this.restart()
   }
 }
