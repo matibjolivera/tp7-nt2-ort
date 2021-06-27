@@ -25,9 +25,7 @@ export default {
   mounted() {
   },
   data() {
-    return {
-
-    }
+    return {}
   },
   methods: {
     restart() {
@@ -70,5 +68,10 @@ button {
 button:hover {
   color: white;
   background-color: steelblue;
+}
+
+.selected {
+  background-color: steelblue;
+  color: white;
 }
 </style>
