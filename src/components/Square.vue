@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="square" :style="{backgroundColor: winColor ? winColor : color}" v-on:click="clickSquare">
+    <div class="square" :style="{backgroundColor: currentColor ? currentColor : color}" v-on:click="clickSquare">
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
     pickedColor: {
       type: String
     },
-    winColor: {
+    currentColor: {
       type: String
     }
   },
@@ -29,11 +29,13 @@ export default {
           nReset: 'Play Again!',
           hBackgroundColor: this.pickedColor
         })
-      }/* else {
-        this.style.backgroundColor = "#232323";
-        this.messageDisplay.textContent = "Try Again!";
-        this.messageDisplay.style.color = "#000000";
-      }*/
+      } else {
+        this.currentColor = "#232323";
+        this.$emit('miss', {
+          nMessage: "Try Again!",
+          nMessageColor: "#000000"
+        })
+      }
     }
   }
 }

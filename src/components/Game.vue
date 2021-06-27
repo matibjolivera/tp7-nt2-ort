@@ -4,8 +4,9 @@
         v-for="(c,i) in colors" :key="i"
         :color="c"
         :pickedColor="pickedColor"
+        :currentColor="winColor"
         v-on:win="win"
-        :winColor="winColor"
+        v-on:miss="miss"
     >
     </Square>
   </section>
@@ -65,6 +66,9 @@ export default {
       this.winColor = this.pickedColor
       payload.winColor = this.winColor
       this.$emit('win', payload)
+    },
+    miss(payload) {
+      this.$emit('miss', payload)
     }
   },
   created() {

@@ -3,7 +3,7 @@
     <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
     <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset"></Navigator>
     <div id="container">
-      <Game v-on:restart="restart" v-on:changeNMessage="changeNMessage" v-on:win="win"></Game>
+      <Game v-on:restart="restart" v-on:changeNMessage="changeNMessage" v-on:win="win" v-on:miss="miss"></Game>
     </div>
   </div>
 </template>
@@ -42,6 +42,10 @@ export default {
     },
     changeNMessage(v) {
       this.nMessage = v
+      this.nMessageColor = '#000'
+    },
+    miss(payload) {
+      this.nMessage = payload.nMessage
       this.nMessageColor = '#000'
     }
   }
