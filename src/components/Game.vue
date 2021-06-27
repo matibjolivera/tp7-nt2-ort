@@ -7,6 +7,7 @@
         :currentColor="winColor"
         v-on:win="win"
         v-on:miss="miss"
+        v-on:changeSquareColor="changeSquareColor"
         :display="s.display"
     >
     </Square>
@@ -92,6 +93,9 @@ export default {
       if (!this.isHard) {
         this.start(6, true);
       }
+    },
+    changeSquareColor(payload) {
+      payload.square.style.backgroundColor = payload.color
     }
   },
   created() {

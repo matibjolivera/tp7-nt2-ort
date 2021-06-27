@@ -34,14 +34,17 @@ export default {
           hBackgroundColor: this.pickedColor
         })
       } else {
-        this.currentColor = "#232323";
+        this.$emit('changeSquareColor', {
+          square: e.target,
+          color: '#232323'
+        })
         this.$emit('miss', {
           nMessage: "Try Again!",
           nMessageColor: "#000000"
         })
       }
     }
-  }
+  },
 }
 </script>
 
