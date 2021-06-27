@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
-    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart" v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
+    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart"
+               v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
     <div id="container">
       <Game v-on:start="start" v-on:win="win" v-on:miss="miss" ref="game"></Game>
     </div>
@@ -28,6 +29,7 @@ export default {
       nMessage: '',
       nReset: 'New colors',
       nMessageColor: '#fff',
+      isHard: true
     }
   },
   methods: {
@@ -48,13 +50,19 @@ export default {
       this.nMessageColor = '#000'
     },
     restart() {
-      this.$refs.game.start()
+      this.$refs.game.start(this.isHard ? 6 : 3, this.isHard)
     },
     changeToEasy() {
-      this.$refs.game.changeToEasy()
+      if (this.isHard) {
+        this.isHard = false;
+        this.$refs.game.changeToEasy()
+      }
     },
     changeToHard() {
-      this.$refs.game.changeToHard()
+      if (!this.isHard) {
+        this.isHard = true
+        this.$refs.game.changeToHard()
+      }
     }
   }
 }
