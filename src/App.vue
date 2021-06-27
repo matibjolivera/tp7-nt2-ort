@@ -34,6 +34,8 @@ export default {
     start(payload) {
       this.hPickedColor = payload.hPickedColor
       this.nMessage = payload.nMessage
+      this.nReset = 'New colors'
+      this.hBackgroundColor = 'steelblue'
     },
     win(payload) {
       this.nMessage = payload.nMessage

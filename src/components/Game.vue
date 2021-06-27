@@ -54,6 +54,10 @@ export default {
       return Math.floor(Math.random() * 256);
     },
     start() {
+      this.colorCount = 6
+      this.isHard = true
+      this.winColor = null
+      this.colors = []
       this.colors = this.createNewColors(this.colorCount);
       this.pickedColor = this.colors[this.PickColor()];
       this.$emit('start', {
@@ -69,12 +73,9 @@ export default {
     },
     miss(payload) {
       this.$emit('miss', payload)
-    }
+    },
   },
   created() {
-    this.colorCount = 6
-    this.isHard = true
-    this.colors = []
     this.start()
   }
 }
