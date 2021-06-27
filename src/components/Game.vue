@@ -53,10 +53,10 @@ export default {
     randomInt() {
       return Math.floor(Math.random() * 256);
     },
-    restart() {
+    start() {
       this.colors = this.createNewColors(this.colorCount);
       this.pickedColor = this.colors[this.PickColor()];
-      this.$emit('restart', {
+      this.$emit('start', {
         hPickedColor: this.pickedColor,
         nMessage: "",
         nReset: "New Colors!"
@@ -75,7 +75,7 @@ export default {
     this.colorCount = 6
     this.isHard = true
     this.colors = []
-    this.restart()
+    this.start()
   }
 }
 </script>

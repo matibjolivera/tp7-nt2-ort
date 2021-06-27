@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="navigator">
-    <button id="reset">{{ reset }}</button>
+    <button id="reset" v-on:click="restart">{{ reset }}</button>
     <span id="message" :style="{color: messageColor}">{{ message }}</span>
     <button id="easy">easy</button>
     <button id="hard" class="selected">hard</button>
@@ -27,7 +27,11 @@ export default {
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    restart() {
+      this.$emit('restart')
+    }
+  },
   computed: {}
 }
 

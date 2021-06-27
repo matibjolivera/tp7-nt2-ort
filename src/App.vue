@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
-    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset"></Navigator>
+    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart"></Navigator>
     <div id="container">
-      <Game v-on:restart="restart" v-on:win="win" v-on:miss="miss"></Game>
+      <Game v-on:start="start" v-on:win="win" v-on:miss="miss" ref="game"></Game>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    restart(payload) {
+    start(payload) {
       this.hPickedColor = payload.hPickedColor
       this.nMessage = payload.nMessage
     },
@@ -44,6 +44,9 @@ export default {
     miss(payload) {
       this.nMessage = payload.nMessage
       this.nMessageColor = '#000'
+    },
+    restart() {
+      this.$refs.game.start()
     }
   }
 }
