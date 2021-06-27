@@ -1,12 +1,15 @@
 <template>
-  <div class="square">
-
-  </div>
+  <div class="square" :style="{backgroundColor: color}"></div>
 </template>
 
 <script>
 export default {
-  name: "Square"
+  name: "Square",
+  props: {
+    color: {
+      type: String
+    }
+  },
 }
 </script>
 
@@ -21,11 +24,6 @@ export default {
   transition: background 0.8s;
   -webkit-transition: background 0.8s;
   -moz-transition: background 0.8s;
-
 }
 
-#container {
-  margin: 20px auto;
-  max-width: 600px;
-}
 </style>
