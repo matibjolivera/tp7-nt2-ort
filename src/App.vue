@@ -3,7 +3,7 @@
     <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
     <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset"></Navigator>
     <div id="container">
-      <Game v-on:restart="restart" v-on:changeNMessage="changeNMessage"></Game>
+      <Game v-on:restart="restart" v-on:changeNMessage="changeNMessage" v-on:win="win"></Game>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       hPickedColor: '',
-      hBackgroundColor: '',
+      hBackgroundColor: null,
       nMessage: '',
       nReset: 'New colors',
       nMessageColor: '#fff'
@@ -33,16 +33,14 @@ export default {
   methods: {
     restart(payload) {
       this.hPickedColor = payload.hPickedColor
-      this.hBackgroundColor = payload.hBackgroundColor
       this.nMessage = payload.nMessage
     },
     win(payload) {
       this.nMessage = payload.nMessage
       this.nReset = payload.nReset
-      this.hBackgroundColor = payload.pickedColor
+      this.hBackgroundColor = payload.winColor
     },
     changeNMessage(v) {
-      console.log("App => changeNMessage: " + v)
       this.nMessage = v
       this.nMessageColor = '#000'
     }

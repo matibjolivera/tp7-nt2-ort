@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="header" :style="{backgroundColor: backgroundColor}">
+  <div class="header" :style="{backgroundColor: backgroundColor ? backgroundColor : 'steelblue'}">
     <h1>The Great <br>
       <span id="colorDisplay">{{ color }}</span>
       <br>
@@ -34,7 +34,6 @@ export default {
 <style scoped lang="css">
 .header {
   transition: all 0.3s;
-  background: steelblue;
   text-transform: uppercase;
   text-align: center;
   margin: 0;

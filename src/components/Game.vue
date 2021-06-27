@@ -57,15 +57,14 @@ export default {
       this.pickedColor = this.colors[this.PickColor()];
       this.$emit('restart', {
         hPickedColor: this.pickedColor,
-        hbackgroundColor: "steelblue",
         nMessage: "",
         nReset: "New Colors!"
       })
     },
     win(payload) {
-      console.log('WIN' + this.pickedColor)
-      this.$emit('win', payload)
       this.winColor = this.pickedColor
+      payload.winColor = this.winColor
+      this.$emit('win', payload)
     }
   },
   created() {
