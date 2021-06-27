@@ -9,7 +9,7 @@
 import Square from "./Square"
 
 export default {
-  name: "Squares",
+  name: "Game",
   components: {
     Square
   },
@@ -19,14 +19,6 @@ export default {
       isHard: false,
       colors: [],
       pickedColor: null,
-      squares: null,
-      colorDisplay: null,
-      messageDisplay: null,
-      h1: null,
-      restartButton: null,
-      header: null,
-      easyButton: null,
-      hardButton: null
     }
   },
   methods: {
@@ -55,19 +47,18 @@ export default {
     restart() {
       this.colors = this.createNewColors(this.colorCount);
       this.pickedColor = this.colors[this.PickColor()];
-      this.$emit('colorChange', this.pickedColor)
-      /*this.colorDisplay.textContent = this.pickedColor;
-      this.textContent = "Pick New Colors!";
-      this.header.style.backgroundColor = "steelblue";
-      this.messageDisplay.textContent = "";
-      this.restartButton.textContent = "New Colors!";*/
-    }
+      this.$emit('restart', {
+        hPickedColor: this.pickedColor,
+        hbackgroundColor: "steelblue",
+        nMessage: "",
+        nReset: "New Colors!"
+      })
+    },
   },
   created() {
     this.colorCount = 6
     this.isHard = true
     this.colors = []
-    //this.pickedColor = this.colors[this.PickColor()]
     /*    this.squares = document.querySelectorAll(".square")
         this.colorDisplay = document.getElementById("colorDisplay")
         this.messageDisplay = document.getElementById("message")

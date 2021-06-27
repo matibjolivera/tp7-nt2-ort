@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="navigator">
-    <button id="reset"> New colors</button>
-    <span id="message"> </span>
+    <button id="reset">{{ reset }}</button>
+    <span id="message">{{ message }}</span>
 
     <button id="easy">easy</button>
     <button id="hard" class="selected">hard</button>
@@ -12,9 +12,15 @@
 
 export default {
   name: 'src-components-navigator',
-  props: [],
+  props: {
+    message: {
+      type: String
+    },
+    reset: {
+      type: String
+    }
+  },
   mounted() {
-
   },
   data() {
     return {}

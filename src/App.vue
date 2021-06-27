@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Header :color="color"></Header>
-    <Navigator></Navigator>
+    <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
+    <Navigator :message="nMessage" :reset="nReset"></Navigator>
     <div id="container">
-      <Squares v-on:colorChange="onColorChange"></Squares>
+      <Game v-on:restart="restart"></Game>
     </div>
   </div>
 </template>
@@ -12,24 +12,29 @@
 
 import Header from "./components/Header";
 import Navigator from "./components/Navigator"
-import Squares from "./components/Squares"
+import Game from "./components/Game"
 
 export default {
   name: 'App',
   components: {
     Header,
     Navigator,
-    Squares
+    Game
   },
   data() {
     return {
-      color: ''
+      hPickedColor: '',
+      hBackgroundColor: '',
+      nMessage: '',
+      nReset: 'New colors'
     }
   },
   methods: {
-    onColorChange(v) {
-      this.color = v
-    }
+    restart(payload) {
+      this.hPickedColor = payload.hPickedColor
+      this.hBackgroundColor = payload.hBackgroundColor
+      this.nMessage = payload.nMessage
+    },
   }
 }
 </script>

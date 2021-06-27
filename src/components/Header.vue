@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="header">
+  <div class="header" :style="{backgroundColor: backgroundColor}">
     <h1>The Great <br>
       <span id="colorDisplay">{{ color }}</span>
       <br>
@@ -11,9 +11,15 @@
 
 export default {
   name: 'src-components-header',
-  props: ["color"],
+  props: {
+    color: {
+      type: String
+    },
+    backgroundColor: {
+      type: String
+    }
+  },
   mounted() {
-
   },
   data() {
     return {}
