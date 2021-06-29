@@ -3,7 +3,6 @@
     <Square
         v-for="(s,i) in squares" :key="i"
         :color="s.color"
-        :pickedColor="pickedColor"
         :currentColor="winColor"
         v-on:win="win"
         v-on:miss="miss"
@@ -29,7 +28,6 @@ export default {
       isHard: true,
       colors: [],
       squares: [],
-      pickedColor: null,
       winColor: null
     }
   },

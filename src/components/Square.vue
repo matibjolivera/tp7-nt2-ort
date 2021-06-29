@@ -13,9 +13,6 @@ export default {
     color: {
       type: String
     },
-    pickedColor: {
-      type: String
-    },
     currentColor: {
       type: String
     },
