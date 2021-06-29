@@ -26,12 +26,12 @@ export default {
   methods: {
     clickSquare(e) {
       let clickedColor = e.target.style.backgroundColor;
-      if (clickedColor === this.pickedColor) {
+      if (clickedColor === this.$store.state.pickedColor) {
         this.$emit('win', {
           nMessage: 'You Picked Right!',
-          squareColors: this.pickedColor,
+          squareColors: this.$store.state.pickedColor,
           nReset: 'Play Again!',
-          hBackgroundColor: this.pickedColor
+          hBackgroundColor: this.$store.state.pickedColor
         })
       } else {
         this.$emit('changeSquareColor', {

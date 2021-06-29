@@ -69,15 +69,15 @@ export default {
           display: 'block'
         })
       })
-      this.pickedColor = this.colors[this.PickColor()];
+      this.$store.state.pickedColor = this.colors[this.PickColor()];
       this.$emit('start', {
-        hPickedColor: this.pickedColor,
+        hPickedColor: this.$store.state.pickedColor,
         nMessage: "",
         nReset: "New Colors!"
       })
     },
     win(payload) {
-      this.winColor = this.pickedColor
+      this.winColor = this.$store.state.pickedColor
       payload.winColor = this.winColor
       this.$emit('win', payload)
     },
