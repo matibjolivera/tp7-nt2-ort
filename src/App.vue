@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :color="hPickedColor" :backgroundColor="hBackgroundColor"></Header>
+    <Header :backgroundColor="hBackgroundColor"></Header>
     <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart"
                v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
     <div id="container">
@@ -24,7 +24,6 @@ export default {
   },
   data() {
     return {
-      hPickedColor: '',
       hBackgroundColor: null,
       nMessage: '',
       nReset: 'New colors',
@@ -34,7 +33,6 @@ export default {
   },
   methods: {
     start(payload) {
-      this.hPickedColor = payload.hPickedColor
       this.nMessage = payload.nMessage
       this.nReset = 'New colors'
       this.hBackgroundColor = 'steelblue'
