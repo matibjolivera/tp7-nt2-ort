@@ -24,8 +24,8 @@ export default {
     clickSquare(e) {
       let clickedColor = e.target.style.backgroundColor;
       if (clickedColor === this.$store.state.pickedColor) {
+        this.$store.state.nMessage = 'You Picked Right!'
         this.$emit('win', {
-          nMessage: 'You Picked Right!',
           squareColors: this.$store.state.pickedColor,
           nReset: 'Play Again!',
           hBackgroundColor: this.$store.state.pickedColor
@@ -35,8 +35,8 @@ export default {
           square: e.target,
           color: '#232323'
         })
+        this.$store.state.nMessage = "Try Again!"
         this.$emit('miss', {
-          nMessage: "Try Again!",
           nMessageColor: "#000000"
         })
       }

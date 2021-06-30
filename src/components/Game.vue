@@ -67,9 +67,9 @@ export default {
           display: 'block'
         })
       })
-      this.$store.state.pickedColor = this.colors[this.PickColor()];
+      this.$store.state.pickedColor = this.colors[this.PickColor()]
+      this.$store.state.nMessage = ''
       this.$emit('start', {
-        nMessage: "",
         nReset: "New Colors!"
       })
     },

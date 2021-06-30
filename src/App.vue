@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :backgroundColor="hBackgroundColor"></Header>
-    <Navigator :message="nMessage" :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart"
+    <Navigator :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart"
                v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
     <div id="container">
       <Game v-on:start="start" v-on:win="win" v-on:miss="miss" ref="game"></Game>
@@ -25,26 +25,22 @@ export default {
   data() {
     return {
       hBackgroundColor: null,
-      nMessage: '',
       nReset: 'New colors',
       nMessageColor: '#fff',
       isHard: true
     }
   },
   methods: {
-    start(payload) {
-      this.nMessage = payload.nMessage
+    start() {
       this.nReset = 'New colors'
       this.hBackgroundColor = 'steelblue'
     },
     win(payload) {
-      this.nMessage = payload.nMessage
       this.nMessageColor = '#000'
       this.nReset = payload.nReset
       this.hBackgroundColor = payload.winColor
     },
-    miss(payload) {
-      this.nMessage = payload.nMessage
+    miss() {
       this.nMessageColor = '#000'
     },
     restart() {
