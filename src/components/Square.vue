@@ -44,8 +44,9 @@ export default {
           property: 'nMessage',
           value: 'Try Again!'
         })
-        this.$emit('miss', {
-          nMessageColor: "#000000"
+        this.$store.dispatch('changeValue', {
+          property: 'nMessageColor',
+          value: '#000000'
         })
       }
     }

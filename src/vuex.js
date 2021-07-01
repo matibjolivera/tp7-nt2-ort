@@ -8,7 +8,8 @@ export default new Vuex.Store({
         pickedColor: '',
         nMessage: '',
         nReset: 'New colors',
-        hBackgroundColor: null
+        hBackgroundColor: null,
+        nMessageColor: '#fff'
     },
     actions: {
         changeValue({commit}, data) {

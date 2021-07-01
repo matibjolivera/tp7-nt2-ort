@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Navigator :messageColor="nMessageColor" v-on:restart="restart"
+    <Navigator v-on:restart="restart"
                v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
     <div id="container">
       <Game v-on:start="start" v-on:win="win" v-on:miss="miss" ref="game"></Game>
@@ -24,7 +24,6 @@ export default {
   },
   data() {
     return {
-      nMessageColor: '#fff',
       isHard: true
     }
   },
@@ -40,10 +39,16 @@ export default {
       })
     },
     win() {
-      this.nMessageColor = '#000'
+      this.$store.dispatch('changeValue', {
+        property: 'nMessageColor',
+        value: '#000'
+      })
     },
     miss() {
-      this.nMessageColor = '#000'
+      this.$store.dispatch('changeValue', {
+        property: 'nMessageColor',
+        value: '#000'
+      })
     },
     restart() {
       this.$refs.game.start(this.isHard ? 6 : 3, this.isHard)
