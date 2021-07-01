@@ -75,6 +75,14 @@ export default {
     win() {
       this.winColor = this.$store.state.pickedColor
       this.$store.dispatch('changeValue', {
+        property: 'nMessage',
+        value: 'You Picked Right!'
+      })
+      this.$store.dispatch('changeValue', {
+        property: 'nReset',
+        value: 'Play Again!'
+      })
+      this.$store.dispatch('changeValue', {
         property: 'hBackgroundColor',
         value: this.$store.state.pickedColor
       })
@@ -87,6 +95,14 @@ export default {
       this.$store.dispatch('changeValue', {
         property: 'nMessageColor',
         value: '#000'
+      })
+      this.$store.dispatch('changeValue', {
+        property: 'nMessage',
+        value: 'Try Again!'
+      })
+      this.$store.dispatch('changeValue', {
+        property: 'nMessageColor',
+        value: '#000000'
       })
     },
     changeToEasy() {
