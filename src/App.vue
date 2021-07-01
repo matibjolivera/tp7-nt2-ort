@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :backgroundColor="hBackgroundColor"></Header>
-    <Navigator :messageColor="nMessageColor" :reset="nReset" v-on:restart="restart"
+    <Navigator :messageColor="nMessageColor" v-on:restart="restart"
                v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
     <div id="container">
       <Game v-on:start="start" v-on:win="win" v-on:miss="miss" ref="game"></Game>
@@ -25,7 +25,6 @@ export default {
   data() {
     return {
       hBackgroundColor: null,
-      nReset: 'New colors',
       nMessageColor: '#fff',
       isHard: true
     }

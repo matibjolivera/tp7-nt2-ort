@@ -6,18 +6,18 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         pickedColor: '',
-        nMessage: ''
+        nMessage: '',
+        nReset: 'New colors'
     },
     actions: {
-        changeNMessage({commit}, message) {
-            console.log('vuex.js -> actions -> changeNMessage()')
-            commit('changeNMessage', message)
+        changeValue({commit}, data) {
+            commit('changeValue', data)
         },
     },
     mutations: {
-        changeNMessage(state, message) {
-            console.log('vuex.js -> mutations -> changeNMessage()')
-            state.nMessage = message
-        }
+        changeValue(state, data) {
+            const property = data.property
+            state[property] = data.value
+        },
     }
 })

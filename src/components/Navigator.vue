@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="navigator">
-    <button id="reset" v-on:click="restart">{{ reset }}</button>
+    <button id="reset" v-on:click="restart">{{ $store.state.nReset }}</button>
     <span id="message" :style="{color: messageColor}">{{ $store.state.nMessage }}</span>
     <button id="easy" v-on:click="changeToEasy()">easy</button>
     <button id="hard" class="selected" v-on:click="changeToHard()">hard</button>
@@ -12,12 +12,6 @@
 export default {
   name: 'src-components-navigator',
   props: {
-    message: {
-      type: String
-    },
-    reset: {
-      type: String
-    },
     messageColor: {
       type: String,
     }

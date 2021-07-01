@@ -68,7 +68,10 @@ export default {
         })
       })
       this.$store.state.pickedColor = this.colors[this.PickColor()];
-      this.$store.dispatch('changeNMessage', '')
+      this.$store.dispatch('changeValue', {
+          property: 'nMessage',
+          value: ''
+        })
       this.$emit('start', {
         nReset: "New Colors!"
       })
