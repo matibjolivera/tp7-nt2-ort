@@ -25,7 +25,6 @@ export default {
   data() {
     return {
       colorCount: 0,
-      isHard: true,
       colors: [],
       squares: [],
       winColor: null
@@ -34,7 +33,7 @@ export default {
   methods: {
     PickColor() {
       let quantity;
-      if (this.isHard) {
+      if (this.$store.state.isHard) {
         quantity = 6;
       } else {
         quantity = 3;
@@ -54,9 +53,8 @@ export default {
     randomInt() {
       return Math.floor(Math.random() * 256);
     },
-    start(colorCount = 6, isHard = true) {
+    start(colorCount = 6) {
       this.colorCount = colorCount
-      this.isHard = isHard
       this.winColor = null
       this.colors = []
       this.squares = []
@@ -86,14 +84,10 @@ export default {
       this.$emit('miss', payload)
     },
     changeToEasy() {
-      if (this.isHard) {
-        this.start(3, false);
-      }
+      this.start(3, false);
     },
     changeToHard() {
-      if (!this.isHard) {
-        this.start(6, true);
-      }
+      this.start(6, true);
     },
     changeSquareColor(payload) {
       payload.square.style.backgroundColor = payload.color

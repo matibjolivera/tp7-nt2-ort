@@ -22,11 +22,6 @@ export default {
     Navigator,
     Game
   },
-  data() {
-    return {
-      isHard: true
-    }
-  },
   methods: {
     start() {
       this.$store.dispatch('changeValue', {
@@ -51,17 +46,23 @@ export default {
       })
     },
     restart() {
-      this.$refs.game.start(this.isHard ? 6 : 3, this.isHard)
+      this.$refs.game.start(this.$store.state.isHard ? 6 : 3, this.$store.state.isHard)
     },
     changeToEasy() {
-      if (this.isHard) {
-        this.isHard = false;
+      if (this.$store.state.isHard) {
+        this.$store.dispatch('changeValue', {
+          property: 'isHard',
+          value: false
+        })
         this.$refs.game.changeToEasy()
       }
     },
     changeToHard() {
-      if (!this.isHard) {
-        this.isHard = true
+       if (!this.$store.state.isHard) {
+        this.$store.dispatch('changeValue', {
+          property: 'isHard',
+          value: true
+        })
         this.$refs.game.changeToHard()
       }
     }
