@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="navigator">
     <button id="reset" v-on:click="restart">{{ reset }}</button>
-    <span id="message" :style="{color: messageColor}">{{ message }}</span>
+    <span id="message" :style="{color: messageColor}">{{ $store.state.nMessage }}</span>
     <button id="easy" v-on:click="changeToEasy()">easy</button>
     <button id="hard" class="selected" v-on:click="changeToHard()">hard</button>
   </div>
