@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :backgroundColor="hBackgroundColor"></Header>
+    <Header></Header>
     <Navigator :messageColor="nMessageColor" v-on:restart="restart"
                v-on:changeToEasy="changeToEasy()" v-on:changeToHard="changeToHard()"></Navigator>
     <div id="container">
@@ -24,7 +24,6 @@ export default {
   },
   data() {
     return {
-      hBackgroundColor: null,
       nMessageColor: '#fff',
       isHard: true
     }
@@ -35,11 +34,13 @@ export default {
         property: 'nReset',
         value: 'New colors'
       })
-      this.hBackgroundColor = 'steelblue'
+      this.$store.dispatch('changeValue', {
+        property: 'hBackgroundColor',
+        value: 'steelblue'
+      })
     },
-    win(payload) {
+    win() {
       this.nMessageColor = '#000'
-      this.hBackgroundColor = payload.winColor
     },
     miss() {
       this.nMessageColor = '#000'

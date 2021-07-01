@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         pickedColor: '',
         nMessage: '',
-        nReset: 'New colors'
+        nReset: 'New colors',
+        hBackgroundColor: null
     },
     actions: {
         changeValue({commit}, data) {
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     },
     mutations: {
         changeValue(state, data) {
+            console.log('vuex.js -> mutations -> changeValue -> ' + JSON.stringify(data))
             const property = data.property
             state[property] = data.value
         },

@@ -69,15 +69,18 @@ export default {
       })
       this.$store.state.pickedColor = this.colors[this.PickColor()];
       this.$store.dispatch('changeValue', {
-          property: 'nMessage',
-          value: ''
-        })
+        property: 'nMessage',
+        value: ''
+      })
       this.$emit('start')
     },
-    win(payload) {
+    win() {
       this.winColor = this.$store.state.pickedColor
-      payload.winColor = this.winColor
-      this.$emit('win', payload)
+      this.$store.dispatch('changeValue', {
+        property: 'hBackgroundColor',
+        value: this.$store.state.pickedColor
+      })
+      this.$emit('win')
     },
     miss(payload) {
       this.$emit('miss', payload)

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="header" :style="{backgroundColor: backgroundColor ? backgroundColor : 'steelblue'}">
+  <div class="header" :style="{backgroundColor: $store.state.hBackgroundColor}">
     <h1>The Great <br>
       <span id="colorDisplay">{{ $store.state.pickedColor }}</span>
       <br>

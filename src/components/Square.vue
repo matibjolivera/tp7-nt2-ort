@@ -34,7 +34,6 @@ export default {
         })
         this.$emit('win', {
           squareColors: this.$store.state.pickedColor,
-          hBackgroundColor: this.$store.state.pickedColor
         })
       } else {
         this.$emit('changeSquareColor', {
