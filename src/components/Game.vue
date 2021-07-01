@@ -95,9 +95,6 @@ export default {
     changeToHard() {
       this.start(6, true);
     },
-    changeSquareColor(payload) {
-      payload.square.style.backgroundColor = payload.color
-    }
   },
   created() {
     this.start()

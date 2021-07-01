@@ -36,10 +36,7 @@ export default {
           squareColors: this.$store.state.pickedColor,
         })
       } else {
-        this.$emit('changeSquareColor', {
-          square: e.target,
-          color: '#232323'
-        })
+        e.target.style.backgroundColor = '#232323'
         this.$store.dispatch('changeValue', {
           property: 'nMessage',
           value: 'Try Again!'
