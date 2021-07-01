@@ -78,10 +78,16 @@ export default {
         property: 'hBackgroundColor',
         value: this.$store.state.pickedColor
       })
-      this.$emit('win')
+      this.$store.dispatch('changeValue', {
+        property: 'nMessageColor',
+        value: '#000'
+      })
     },
-    miss(payload) {
-      this.$emit('miss', payload)
+    miss() {
+      this.$store.dispatch('changeValue', {
+        property: 'nMessageColor',
+        value: '#000'
+      })
     },
     changeToEasy() {
       this.start(3, false);

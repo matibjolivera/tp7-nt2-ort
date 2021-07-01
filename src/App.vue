@@ -33,18 +33,6 @@ export default {
         value: 'steelblue'
       })
     },
-    win() {
-      this.$store.dispatch('changeValue', {
-        property: 'nMessageColor',
-        value: '#000'
-      })
-    },
-    miss() {
-      this.$store.dispatch('changeValue', {
-        property: 'nMessageColor',
-        value: '#000'
-      })
-    },
     restart() {
       this.$refs.game.start(this.$store.state.isHard ? 6 : 3, this.$store.state.isHard)
     },
