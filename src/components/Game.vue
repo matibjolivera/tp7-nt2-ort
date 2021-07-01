@@ -72,9 +72,7 @@ export default {
           property: 'nMessage',
           value: ''
         })
-      this.$emit('start', {
-        nReset: "New Colors!"
-      })
+      this.$emit('start')
     },
     win(payload) {
       this.winColor = this.$store.state.pickedColor

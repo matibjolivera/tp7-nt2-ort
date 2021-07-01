@@ -28,9 +28,12 @@ export default {
           property: 'nMessage',
           value: 'You Picked Right!'
         })
+        this.$store.dispatch('changeValue', {
+          property: 'nReset',
+          value: 'Play Again!'
+        })
         this.$emit('win', {
           squareColors: this.$store.state.pickedColor,
-          nReset: 'Play Again!',
           hBackgroundColor: this.$store.state.pickedColor
         })
       } else {

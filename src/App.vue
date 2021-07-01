@@ -31,12 +31,14 @@ export default {
   },
   methods: {
     start() {
-      this.nReset = 'New colors'
+      this.$store.dispatch('changeValue', {
+        property: 'nReset',
+        value: 'New colors'
+      })
       this.hBackgroundColor = 'steelblue'
     },
     win(payload) {
       this.nMessageColor = '#000'
-      this.nReset = payload.nReset
       this.hBackgroundColor = payload.winColor
     },
     miss() {
